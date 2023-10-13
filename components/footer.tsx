@@ -4,7 +4,7 @@ export default function Footer () {
       <small className='mb-2 block text-xs'>© 2023 Luis Flores. All rights reserved.</small>
 
       <p className='text-xs'>
-        <span className='font-semibold'>About this website:</span> This site was built with <a href="https://nextjs.org/">Next.js</a>, <a href="https://www.typescriptlang.org/">TypeScript</a>, <a href="https://tailwindcss.com/">Tailwind CSS</a>, <a href="https://www.framer.com/motion/">Framer Motion</a>, <a href="https://resend.com/docs/api-reference/emails/send-email">React Email & Resend</a>, and is hosted on <a href="https://aws.amazon.com/">AWS</a>.        
+        <span className='font-semibold'>About this website:</span> This site was built with <a href="https://nextjs.org/">Next.js</a>, <a href="https://www.typescriptlang.org/">TypeScript</a>, <a href="https://tailwindcss.com/">Tailwind CSS</a>, <a href="https://www.framer.com/motion/">Framer Motion</a>, <a href="https://resend.com/docs/api-reference/emails/send-email">React Email & Resend</a>, and is hosted on <a href="https://vercel.com">Vercel</a>.        
       </p>
     </footer>
   );
