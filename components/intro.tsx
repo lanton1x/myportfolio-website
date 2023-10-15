@@ -34,7 +34,8 @@ export default function Intro() {
               height='192' 
               quality='95' 
               priority={true}
-              alt='Luis Flores Portrait' className='h-24 2-24 rounded-full object-cover border-[0.35rem] border-white shadow-xl border-opacity-40 shadow-black/[0.03] backdrop-blur-[0.5rem] sm:h-32 sm:w-32 sm:border-[0.25rem] sm:backdrop-blur-[0.25rem]'
+              alt='Luis Flores Portrait' 
+              className='h-24 w-24 rounded-full object-cover border-[0.35rem] border-white shadow-xl border-opacity-40 shadow-black/[0.03] backdrop-blur-[0.5rem] sm:h-32 sm:w-32 sm:border-[0.25rem] sm:backdrop-blur-[0.25rem]'
             />
           </motion.div>
         </div>
@@ -86,13 +87,13 @@ export default function Intro() {
             className='opacity-60 group-hover:translate-y-1 transition' />
         </a>
         <a 
-          className='bg-white rounded-full px-4 text-gray-700 flex items-center gap-2 text-[1.35rem] focus:scale-[1.15] hover:scale-[1.15] hover:bg-gray-200 hover:text-gray-950 group-active:bg-purple-600 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60'
+          className='bg-white rounded-full px-6 text-gray-700 flex items-center gap-2 text-[1.5rem] focus:scale-[1.15] hover:scale-[1.15] hover:bg-gray-200 hover:text-gray-950 group-active:bg-purple-600 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60'
           href='https://www.linkedin.com/in/luis-a-flores' 
           target='_blank'
         >
           <BsLinkedin />
         </a>
-        <a className='bg-white rounded-full px-4 text-gray-700 flex items-center gap-2 text-[1.35rem] focus:scale-[1.15] hover:scale-[1.15] hover:bg-gray-200 hover:text-gray-950 group-active:bg-purple-600 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60' href='https://github.com/lanton1x' target='_blank'>
+        <a className='bg-white rounded-full px-6 text-gray-700 flex items-center gap-2 text-[1.5rem] focus:scale-[1.15] hover:scale-[1.15] hover:bg-gray-200 hover:text-gray-950 group-active:bg-purple-600 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60' href='https://github.com/lanton1x' target='_blank'>
           <FaGithubSquare />
         </a>
       </motion.div>

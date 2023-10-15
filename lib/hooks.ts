@@ -1,7 +1,7 @@
 'use client';
 
 import { useActiveSectionContext } from "@/context/active-section-context";
-import { use, useEffect } from "react";
+import { use, useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import type { SectionName } from "./types";
 
