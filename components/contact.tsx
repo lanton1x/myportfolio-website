@@ -29,7 +29,7 @@ export default function Contact() {
       <div
         className='flex flex-wrap text-center justify-center'>
         <p className='text-gray-700 dark:text-white/80'
-        >I am open for consulting roles, as well as to any REMOTE part-time or full-time opportunity. You can email me anytime at{' '}
+        >I am open for consulting roles, as well as any REMOTE part-time or full-time opportunity. You can email me anytime at{' '}
           <span><a
             href="mailto:falucho@msn.com"
             className="text-blue-500"
@@ -53,7 +53,7 @@ export default function Contact() {
             toast.error(error);
             return;
           }
-          toast.success('Email sent successfully!');
+          toast.success('Email sent successfully! I will get back to you as soon as possible.');
           formRef.current?.reset();
         }}
       >

@@ -29,7 +29,12 @@ export default function RootLayout({
           <ActiveSectionContextProvider>
             <Header />
             {children}
-            <Toaster position='top-right' />
+            <Toaster 
+              position='top-right'
+              toastOptions={{
+                duration: 8000,
+              }}
+              />
             <Footer />
           </ActiveSectionContextProvider>
           <ThemeSwitch />
