@@ -17,16 +17,18 @@ const fadeInAnimationVariants = {
   }),
 };
 
-export default function Skills() {
+export default function Skills({ params }: { params: { lang: string } }) {
 
-  const { ref } = useSectionInView('Skills', 0.5);
+  const { ref } = useSectionInView('#skills', 0.5);
+  const sectionTitle = params.lang === 'en' ? 'My Skills' : 'Mis Habilidades';
+
   return (
     <section 
       ref={ref}
       className='mb-15 max-w-[53rem] text-center sm:mb-22 scroll-mt-28 capitalize'
       id='skills'
     >
-      <SectionHeader>My Skills</SectionHeader>
+      <SectionHeader>{sectionTitle}</SectionHeader>
       <div>
         <ul className='flex flex-wrap justify-center gap-2 text-lg text-gray-800'>
           {

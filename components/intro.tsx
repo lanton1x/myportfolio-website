@@ -10,14 +10,27 @@ import { FaGithubSquare } from "react-icons/fa";
 import { useSectionInView } from "@/lib/hooks";
 import { useActiveSectionContext } from "@/context/active-section-context";
 
-export default function Intro() {
+type IntroProps = {
+  params: {
+    lang: string;
+  };
+  introData: {
+    contactMe: string;
+    downloadMe: string;
+    introHtml: React.ReactElement;
+  };
+};
 
-  const { ref } = useSectionInView('Home', 0.5);
+export default function Intro({ params, introData }: IntroProps) {
+
+  const { ref } = useSectionInView('#home', 0.5);
   const {
     setActiveSection,
     setTimeOfLastClick,
   } = useActiveSectionContext();
 
+  const introHtml: React.ReactElement = introData.introHtml;
+  
   return (
     <section 
       ref={ref}
@@ -46,23 +59,13 @@ export default function Intro() {
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
         >Luis Flores</motion.h1>
-        <motion.p 
+        <motion.div 
           className='mb-10 mt-8 px-4 text-1.5xl font-medium text-gray-600 !leading-[1.5] sm:text-2xl dark:text-white/80'
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
         >
-          <span>I am a seasoned{' '}</span>
-          <span className='font-bold'>QA Engineer/DevOps, Full Stack Developer,</span>{' '}and{' '}
-          <span className='font-bold'>Entrepreneur</span> with{' '}
-          <span className='font-bold'>20+ years{' '}</span>experience on multiple platforms, from{' '}
-          <span className='italic'>Mainframe</span> to{' '}
-          <span className='italic'>Edge</span> and{' '}
-          <span className='italic'>Cloud Computing,</span> across several domains. I enjoy creating{' '}
-          <span className='italic'>testing strategies</span> and{' '} 
-          <span className='italic'>automation frameworks</span>, and as a developer enthusiast, delivering solutions created with{' '}
-          <span className='italic font-bold'>React</span> and{' '}
-          <span className='italic font-bold'>NextJS.</span>
-        </motion.p>
+          <div dangerouslySetInnerHTML={{ __html: introHtml }} />
+        </motion.div>
       </div>
       <motion.div
         className='flex flex-col sm:flex-row items-center justify-center gap-3 px-4 text-lg font-medium mb-10'
@@ -73,18 +76,16 @@ export default function Intro() {
         }}>
         <Link href='#contact' className='group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 hover:bg-gray-950 active:bg-purple-800 transition'
         onClick={() => {
-          setActiveSection('Contact');
+          setActiveSection('#contact');
           setTimeOfLastClick(Date.now());
-        }}>Contact me{' '}<BsArrowRight className='opacity-70 group-hover:translate-x-1 transition' />
+        }}>{introData.contactMe} <BsArrowRight className='opacity-70 group-hover:translate-x-1 transition' />
         </Link>
         <a 
           className='group bg-white rounded-full px-7 py-3 flex items-center gap-2 outline-none focus:scale-110 hover:scale-110 active:scale-105 hover:bg-gray-200 group-active:bg-purple-600 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60'
           href='/CV.pdf'
           download='Luis_Flores_CV.pdf'
           target='_blank'
-        >
-          Download CV{' '}<HiDownload 
-            className='opacity-60 group-hover:translate-y-1 transition' />
+        >{introData.downloadMe} <HiDownload className='opacity-60 group-hover:translate-y-1 transition' />
         </a>
         <a 
           className='bg-white rounded-full px-6 text-gray-700 flex items-center gap-2 text-[1.5rem] focus:scale-[1.15] hover:scale-[1.15] hover:bg-gray-200 hover:text-gray-950 group-active:bg-purple-600 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60'
