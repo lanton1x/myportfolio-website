@@ -40,10 +40,17 @@ export default function Contact({ params, contactData }: ContactProps) {
         {sectionTitle}
       </SectionHeader>
       <div
-        className='flex flex-wrap text-center justify-center'>
+        className='flex flex-wrap text-left justify-center'>
         <div className='text-gray-700 dark:text-white/80'
         >
-          <div dangerouslySetInnerHTML={{ __html: contactHtml }} />
+          <p>
+            <span dangerouslySetInnerHTML={{ __html: contactHtml }} />
+            <span><a
+            href="tel:+1-503-807-3270"
+            className="text-blue-500"
+            >+1 (503) 807-3270</a>
+            </span>
+          </p>         
         </div>
       </div>
       <form

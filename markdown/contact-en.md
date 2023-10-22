@@ -1,1 +1,2 @@
-I am open for consulting roles, as well as any _REMOTE_ part-time or full-time opportunity. You can email me anytime at ***<falucho@msn.com>***, or using the form below. You can also reach me Monday through Friday during business hours at my cell phone number [Click to Call](tel:+15038073270).
+I am open for consulting roles, as well as any *REMOTE* part-time or full-time opportunity. You can email me anytime at ***<falucho@msn.com>***, or using the form below.\
+You can also reach me Monday through Friday during business hours USA Pacific Time (PST), by calling the cell phone number displayed below:
