@@ -5,7 +5,7 @@ import html from 'remark-html';
 import React, { ReactElement } from 'react';
 import DOMPurify from 'dompurify';
 
-export default async function GetMarkdownContent (fileName: string): Promise<React.ReactElement> {
+export default async function GetMarkdownContent (fileName: string): Promise<string> {
 
   const dirRelativeToPublicFolder = 'markdown';
   const mdDirPath = path.resolve('./public', dirRelativeToPublicFolder);
@@ -21,5 +21,5 @@ export default async function GetMarkdownContent (fileName: string): Promise<Rea
 
   const contentHtml = processedContent.toString();
 
-  return contentHtml as unknown as React.ReactElement;
+  return contentHtml;
 }

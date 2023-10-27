@@ -9,7 +9,7 @@ type AboutProps = {
     lang: string;
   };
   aboutData: {
-    aboutHtml: React.ReactElement;
+    aboutHtml: string;
   };
 };
 
@@ -17,7 +17,7 @@ export default function About({ params, aboutData }: AboutProps) {
 
   const { ref } = useSectionInView('#about');
   const sectionTitle = params.lang === 'es' ? 'Mi Trayectoria' : 'About Me';
-  const aboutHtml: React.ReactElement = aboutData.aboutHtml;
+  const aboutHtml = aboutData.aboutHtml;
 
   return (
     <motion.section 

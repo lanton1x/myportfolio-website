@@ -13,7 +13,7 @@ type ContactProps = {
     lang: string;
   };
   contactData: {
-    contactHtml: React.ReactElement;
+    contactHtml: string;
   };
 };
 
@@ -24,7 +24,7 @@ export default function Contact({ params, contactData }: ContactProps) {
 
   const lang = params.lang;
   const sectionTitle = lang === 'es' ? 'Contácteme' : 'Contact me';
-  const contactHtml: React.ReactElement = contactData.contactHtml;
+  const contactHtml = contactData.contactHtml;
 
   return (
     <motion.section

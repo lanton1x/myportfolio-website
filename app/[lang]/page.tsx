@@ -16,13 +16,13 @@ type ComponentProps = {
   introData: {
     contactMe: string;
     downloadMe: string;
-    introHtml: React.ReactElement;
+    introHtml: string;
   };
   aboutData: {
-    aboutHtml: React.ReactElement;
+    aboutHtml: string;
   };
   contactData: {
-    contactHtml: React.ReactElement;
+    contactHtml: string;
   };
 };
 
@@ -31,11 +31,11 @@ export default async function Home({ params }: { params: { lang: string }; }) {
   const lang = params.lang;
 
   const getComponentData = async ( lang: string ) => {
-    let contactMe = 'Contact me';
-    let downloadMe = 'Download Resume';
-    let introHtml = await GetMarkdownContent('intro-en.md');
-    let aboutHtml = await GetMarkdownContent('about-en.md');
-    let contactHtml = await GetMarkdownContent('contact-en.md');
+    let contactMe;
+    let downloadMe;
+    let introHtml;
+    let aboutHtml;
+    let contactHtml;
 
     if (lang === 'es') {
       contactMe = 'Contácteme';
@@ -43,7 +43,14 @@ export default async function Home({ params }: { params: { lang: string }; }) {
       introHtml = await GetMarkdownContent('intro-es.md');
       aboutHtml = await GetMarkdownContent('about-es.md');
       contactHtml = await GetMarkdownContent('contact-es.md');
-    };
+    } else {
+      contactMe = 'Contact me';
+      downloadMe = 'Download Resume';
+      introHtml = await GetMarkdownContent('intro-en.md');
+      aboutHtml = await GetMarkdownContent('about-en.md');
+      contactHtml = await GetMarkdownContent('contact-en.md');
+    }
+    ;
     return { contactMe, downloadMe, introHtml, aboutHtml, contactHtml };
   }
 
