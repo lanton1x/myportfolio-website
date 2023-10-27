@@ -65,7 +65,7 @@ export default function Intro({ params, introData }: IntroProps) {
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
         >
-          <div dangerouslySetInnerHTML={{ __html: introHtml }} />;
+          <div dangerouslySetInnerHTML={{ __html: introHtml }} />
         </motion.div>
       </div>
       <motion.div
