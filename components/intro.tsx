@@ -17,7 +17,7 @@ type IntroProps = {
   introData: {
     contactMe: string;
     downloadMe: string;
-    introHtml: React.ReactElement;
+    introHtml: string;
   };
 };
 
@@ -29,8 +29,9 @@ export default function Intro({ params, introData }: IntroProps) {
     setTimeOfLastClick,
   } = useActiveSectionContext();
 
-  const introHtml: React.ReactElement = introData.introHtml;
-  
+  const introHtml = introData.introHtml;
+  const introHtmlString: string = introData.introHtml;
+                  
   return (
     <section 
       ref={ref}
@@ -59,12 +60,12 @@ export default function Intro({ params, introData }: IntroProps) {
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
         >Luis Flores</motion.h1>
-        <motion.div 
+        <motion.div
           className='mb-10 mt-8 px-4 text-1.5xl font-medium text-gray-600 !leading-[1.5] sm:text-2xl dark:text-white/80'
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
         >
-          <div dangerouslySetInnerHTML={{ __html: introHtml }} />
+          <div dangerouslySetInnerHTML={{ __html: introHtml }} />;
         </motion.div>
       </div>
       <motion.div
@@ -74,11 +75,13 @@ export default function Intro({ params, introData }: IntroProps) {
         transition={{
           delay: 0.1,
         }}>
-        <Link href='#contact' className='group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 hover:bg-gray-950 active:bg-purple-800 transition'
-        onClick={() => {
-          setActiveSection('#contact');
-          setTimeOfLastClick(Date.now());
-        }}>{introData.contactMe} <BsArrowRight className='opacity-70 group-hover:translate-x-1 transition' />
+        <Link 
+          href='#contact' 
+          className='group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 hover:bg-gray-950 active:bg-purple-800 transition'
+          onClick={() => {
+            setActiveSection('#contact');
+            setTimeOfLastClick(Date.now());
+          }}>{introData.contactMe} <BsArrowRight className='opacity-70 group-hover:translate-x-1 transition' />
         </Link>
         <a 
           className='group bg-white rounded-full px-7 py-3 flex items-center gap-2 outline-none focus:scale-110 hover:scale-110 active:scale-105 hover:bg-gray-200 group-active:bg-purple-600 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60'
@@ -94,10 +97,14 @@ export default function Intro({ params, introData }: IntroProps) {
         >
           <BsLinkedin />
         </a>
-        <a className='bg-white rounded-full px-6 text-gray-700 flex items-center gap-2 text-[1.5rem] focus:scale-[1.15] hover:scale-[1.15] hover:bg-gray-200 hover:text-gray-950 group-active:bg-purple-600 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60' href='https://github.com/lanton1x' target='_blank'>
+        <a 
+          className='bg-white rounded-full px-6 text-gray-700 flex items-center gap-2 text-[1.5rem] focus:scale-[1.15] hover:scale-[1.15] hover:bg-gray-200 hover:text-gray-950 group-active:bg-purple-600 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60' 
+          href='https://github.com/lanton1x' 
+          target='_blank'
+        >
           <FaGithubSquare />
         </a>
       </motion.div>
     </section>
-  )
+  );
 }
