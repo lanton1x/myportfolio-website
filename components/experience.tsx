@@ -8,10 +8,12 @@ import { experiencesData } from "@/lib/data";
 import React, { useContext } from "react";
 import { useTheme } from "@/context/theme-context";
 
-export default function Experience() {
+export default function Experience({ params }: { params: { lang: string } }) {
 
-  const { ref } = useSectionInView('Experience', 0.5);
+  const { ref } = useSectionInView('#experience', 0.5);
   const { theme } = useTheme();
+
+  const sectionTitle = params.lang === 'en' ? 'My Professional Experience' : 'Mi Experiencia Profesional';
 
   return (
     <section
@@ -19,7 +21,7 @@ export default function Experience() {
       id='experience'
       className='scroll-mt-28 mb-15 sm:mb-22'
     >
-      <SectionHeader>My Professional Experience</SectionHeader>
+      <SectionHeader>{sectionTitle}</SectionHeader>
       <VerticalTimeline lineColor="">
         {experiencesData.map((item, index) => (
           <React.Fragment key={index}>
@@ -41,10 +43,10 @@ export default function Experience() {
                 fontSize: "1.5rem", 
                 }}
               >
-              <h2 className='font-bold dark:text-white/80'>{item.title}</h2>
+              <h2 className='font-bold dark:text-white/80'>{params.lang === 'en' ? item.title : item.titulo }</h2>
               <h3 className='font-semibold capitalize'>{item.company}</h3>
               <p className='font-normal !mt-0'>{item.location}</p>
-              <p className='!font-normal !mt-1 text-gray-700 dark:text-white/70'>{item.description}</p>
+              <p className='!font-normal !mt-1 text-gray-700 dark:text-white/70'>{params.lang === 'en' ? item.description : item.descripcion }</p>
             </VerticalTimelineElement>
           </React.Fragment>
         ))}

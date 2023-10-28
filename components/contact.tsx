@@ -2,16 +2,29 @@
 
 import { useSectionInView } from "@/lib/hooks";
 import SectionHeader from "./section-header";
-import React, { use, useEffect, useRef, useState } from "react";
+import React, { useRef } from "react";
 import { motion } from "framer-motion";
 import { sendEmail } from "@/actions/sendEmail";
 import SubmitButton from "./submit-button";
 import toast from "react-hot-toast";
 
-export default function Contact() {
+type ContactProps = {
+  params: {
+    lang: string;
+  };
+  contactData: {
+    contactHtml: string;
+  };
+};
 
-  const { ref } = useSectionInView('Contact', 0.5);
+export default function Contact({ params, contactData }: ContactProps) {
+
+  const { ref } = useSectionInView('#contact', 0.5);
   const formRef = useRef<HTMLFormElement>(null);
+
+  const lang = params.lang;
+  const sectionTitle = lang === 'es' ? 'Contácteme' : 'Contact me';
+  const contactHtml = contactData.contactHtml;
 
   return (
     <motion.section
@@ -24,24 +37,21 @@ export default function Contact() {
       viewport={{ once: true }}
     >
       <SectionHeader>
-        Contact Me
+        {sectionTitle}
       </SectionHeader>
       <div
-        className='flex flex-wrap text-center justify-center'>
-        <p className='text-gray-700 dark:text-white/80'
-        >I am open for consulting roles, as well as any REMOTE part-time or full-time opportunity. You can email me anytime at{' '}
-          <span><a
-            href="mailto:falucho@msn.com"
-            className="text-blue-500"
-          >falucho@msn.com</a>
-          </span>
-          <span>, or using the form below. You can also reach me Monday through Friday during business hours at my cell phone number{' '}</span>
-          <span><a
+        className='flex flex-wrap text-left justify-center'>
+        <div className='text-gray-700 dark:text-white/80'
+        >
+          <p>
+            <span dangerouslySetInnerHTML={{ __html: contactHtml }} />
+            <span><a
             href="tel:+1-503-807-3270"
             className="text-blue-500"
-            >+1 (503) 807-3270</a>.
-          </span>
-        </p>
+            >+1 (503) 807-3270</a>
+            </span>
+          </p>         
+        </div>
       </div>
       <form
         ref={formRef}
@@ -63,16 +73,16 @@ export default function Contact() {
           type='email'
           required
           maxLength={500}
-          placeholder="Your email address"
+          placeholder={`${lang === 'es' ? "Su dirección de correo electrónico" : "Your email address"}`}
         />
         <textarea
           className='h-52 rounded-lg my-3 borderBlack p-4 dark:bg-white dark:bg-opacity-90 dark:focus:bg-opacity-100 transition-all dark:outline-none'
           name='message'
-          placeholder='Your message...'
+          placeholder={`${lang === 'es' ? "Su mensaje..." : "Your message..."}`}
           required
           maxLength={5000}
         />
-        <SubmitButton />
+        <SubmitButton params={{lang: lang}} />
       </form>
     </motion.section>
   );

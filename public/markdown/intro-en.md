@@ -1,0 +1,1 @@
+I am a seasoned **QA Engineer/DevOps**, **Full Stack Developer**, and **Entrepreneur** with **20+ years** experience on multiple platforms, from *Mainframe* to *Edge* and *Cloud Computing*, across several domains. I enjoy creating *testing strategies* and *automation frameworks*, and as a developer enthusiast, delivering solutions created with **_React_** and **_NextJS_**.
