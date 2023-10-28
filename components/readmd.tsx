@@ -11,7 +11,6 @@ export default async function GetMarkdownContent (fileName: string): Promise<str
   const mdDirPath = path.resolve('./public', dirRelativeToPublicFolder);
   
   const mdFilePath = path.join(`${mdDirPath}/${fileName}`);
-  console.log('mdFilePath: ', mdFilePath);
 
   const mdContent = fs.readFileSync(mdFilePath, 'utf8');
 

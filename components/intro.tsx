@@ -94,6 +94,7 @@ export default function Intro({ params, introData }: IntroProps) {
           className='bg-white rounded-full px-6 text-gray-700 flex items-center gap-2 text-[1.5rem] focus:scale-[1.15] hover:scale-[1.15] hover:bg-gray-200 hover:text-gray-950 group-active:bg-purple-600 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60'
           href='https://www.linkedin.com/in/luis-a-flores' 
           target='_blank'
+          aria-label="Luis Flores' LinkedIn Profile"
         >
           <BsLinkedin />
         </a>
@@ -101,6 +102,7 @@ export default function Intro({ params, introData }: IntroProps) {
           className='bg-white rounded-full px-6 text-gray-700 flex items-center gap-2 text-[1.5rem] focus:scale-[1.15] hover:scale-[1.15] hover:bg-gray-200 hover:text-gray-950 group-active:bg-purple-600 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60' 
           href='https://github.com/lanton1x' 
           target='_blank'
+          aria-label="Luis Flores' GitHub URL"
         >
           <FaGithubSquare />
         </a>
