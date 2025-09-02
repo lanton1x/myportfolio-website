@@ -6,6 +6,7 @@ import Projects from "@/components/projects";
 import SectionDivider from "@/components/section-divider";
 import Skills from "@/components/skills";
 import GetMarkdownContent from "@/components/readmd";
+import { Suspense } from "react";
 
 type Props = {
   params: {
@@ -26,11 +27,12 @@ type ComponentProps = {
   };
 };
 
-export default async function Home({ params }: { params: { lang: string }; }) {
+export default async function Home(props: { params: Promise<{ lang: string }>; }) {
+  const params = await props.params;
 
   const lang = params.lang;
 
-  const getComponentData = async ( lang: string ) => {
+  const getComponentData = async (lang: string) => {
     let contactMe;
     let downloadMe;
     let introHtml;
@@ -58,32 +60,37 @@ export default async function Home({ params }: { params: { lang: string }; }) {
 
   return (
     <main className='flex flex-col items-center px-4'>
-      <Intro 
-        params={{lang: lang}} 
+      <Intro
+        params={{ lang: lang }}
         introData={{
-          contactMe: componentData.contactMe, 
-          downloadMe: componentData.downloadMe, 
-          introHtml: componentData.introHtml}}
+          contactMe: componentData.contactMe,
+          downloadMe: componentData.downloadMe,
+          introHtml: componentData.introHtml
+        }}
       />
       <SectionDivider />
-      <About 
-        params={{lang: lang}} 
+      <About
+        params={{ lang: lang }}
         aboutData={{
-          aboutHtml: componentData.aboutHtml}}
+          aboutHtml: componentData.aboutHtml
+        }}
       />
       <SectionDivider />
-      <Projects params={{lang: lang}} 
-      />      
-      <SectionDivider />
-      <Skills params={{lang: lang}} />
-      <SectionDivider />
-      <Experience params={{lang: lang}} />
-      <SectionDivider />
-      <Contact 
-        params={{lang: lang}} 
-        contactData={{
-          contactHtml: componentData.contactHtml}}      
+      <Projects params={{ lang: lang }}
       />
+      <SectionDivider />
+      <Skills params={{ lang: lang }} />
+      <SectionDivider />
+      <Experience params={{ lang: lang }} />
+      <SectionDivider />
+      <Suspense fallback={<div>Loading contact section...</div>}>
+        <Contact
+          params={{ lang: lang }}
+          contactData={{
+            contactHtml: componentData.contactHtml
+          }}
+        />
+      </Suspense>
     </main>
   )
 }

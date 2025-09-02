@@ -17,13 +17,18 @@ export const metadata: Metadata = {
   description: 'Full Stack Developer, QA Engineer/DevOps and Entrepreneur',
 }
 
-export default function RootLayout({
-  children,
-  params,
-}: {
-  children: ReactNode;
-  params: { lang: string };
-}) {
+export default async function RootLayout(
+  props: {
+    children: ReactNode;
+    params: Promise<{ lang: string }>;
+  }
+) {
+  const params = await props.params;
+
+  const {
+    children
+  } = props;
+
   const lang = params.lang || defaultLocale;
   return (
     <html lang={lang} className='!scroll-smooth'>
